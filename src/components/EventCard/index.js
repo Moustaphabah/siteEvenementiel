@@ -29,8 +29,6 @@ const EventCard = ({
         </div>
     </div>
   );
-
-  const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
 EventCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
   imageAlt: PropTypes.string,

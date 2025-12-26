@@ -10,15 +10,15 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
-  const nextCard = () => {
-    setTimeout(
-      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
-      5000
-    );
-  };
+  const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
+
   useEffect(() => {
-    nextCard();
-  }, [index, byDateDesc]);
+    if (!byDateDesc || byDateDesc.length === 0) return undefined;
+    const timer = setTimeout(() => {
+      setIndex((i) => (i < byDateDesc.length - 1 ? i + 1 : 0));
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [byDateDesc]);
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
@@ -28,7 +28,7 @@ const Slider = () => {
             index === idx ? "display" : "hide"
           }`}
         >
-          <img src={event.cover} alt="forum" />
+          <img src={resolveSrc(event.cover)} alt="forum" />
           <div className="SlideCard__descriptionContainer">
             <div className="SlideCard__description">
               <h3>{event.title}</h3>
