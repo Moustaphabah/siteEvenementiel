@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 
 import "./style.scss";
+const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
 
 const PeopleCard = ({ imageSrc, imageAlt, position, name }) => (
     <div className="PeopleCard">
       <div className="PeopleCard__imageContainer">
-        <img data-testid="card-image-testid" src={imageSrc} alt={imageAlt} />
+        <img data-testid="card-image-testid" src={resolveSrc(imageSrc)} alt={imageAlt} />
       </div>
       <div className="PeopleCard__descriptionContainer">
         <div className="PeopleCard__name">{name}</div>

@@ -3,6 +3,8 @@ import { getMonth } from "../../helpers/Date";
 
 import "./style.scss";
 
+const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
+
 const EventCard = ({
   imageSrc,
   imageAlt,
@@ -18,16 +20,17 @@ const EventCard = ({
       {...props}
     >
       <div className="EventCard__imageContainer">
-        <img data-testid="card-image-testid" src={imageSrc} alt={imageAlt} />
-        <div className="EventCard__label">{label}</div>
+        <img data-testid="card-image-testid" src={resolveSrc(imageSrc)} alt={imageAlt} />
+        {label && <div className="EventCard__label">{label}</div>}
       </div>
-      <div className="EventCard__descriptionContainer">
-        <div className="EventCard__title">{title}</div>
-        <div className="EventCard__month">{getMonth(date)}</div>
-      </div>
+        <div className="EventCard__descriptionContainer">
+          <div className="EventCard__title">{title}</div>
+          <div className="EventCard__month">{getMonth(date)}</div>
+        </div>
     </div>
   );
 
+  const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
 EventCard.propTypes = {
   imageSrc: PropTypes.string.isRequired,
   imageAlt: PropTypes.string,
