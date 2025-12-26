@@ -22,8 +22,7 @@
     "lint": "eslint .eslintrc.js ./src",
     "format": "prettier ./src --write",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "deployy": "npm run deploy"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

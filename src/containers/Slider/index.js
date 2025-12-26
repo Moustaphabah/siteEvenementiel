@@ -18,7 +18,7 @@ const Slider = () => {
       setIndex((i) => (i < byDateDesc.length - 1 ? i + 1 : 0));
     }, 5000);
     return () => clearTimeout(timer);
-  }, [byDateDesc]);
+  }, [byDateDesc, index]);
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
