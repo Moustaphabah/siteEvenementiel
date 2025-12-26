@@ -16,6 +16,7 @@ const Page = () => {
   const {last} = useData();
   
   // Debug temporaire
+  // eslint-disable-next-line no-console
   console.log('Debug - last:', last);
   
   return <>

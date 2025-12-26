@@ -21,11 +21,14 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const getData = useCallback(async () => {
     try {
+      // eslint-disable-next-line no-console
       console.log('Loading data...');
       const loadedData = await api.loadData();
+      // eslint-disable-next-line no-console
       console.log('Data loaded:', loadedData);
       setData(loadedData);
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.error('Error loading data:', err);
       setError(err);
     }

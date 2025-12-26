@@ -1,12 +1,13 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
     jest: true
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
+    'react-app',
+    'react-app/jest',
     'prettier',
   ],
   parserOptions: {
@@ -16,9 +17,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  // plugins are provided by react-scripts' config
   rules: {
     'react/react-in-jsx-scope': 'off',
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

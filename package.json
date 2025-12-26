@@ -2,6 +2,7 @@
   "name": "724-events",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://moustaphabah.github.io/siteEvenementiel",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -10,7 +11,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^0.0.0",
     "sass": "^1.51.0",
     "web-vitals": "^2.1.4"
   },
@@ -19,7 +20,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint .eslintrc.js ./src",
-    "format": "prettier ./src --write"
+    "format": "prettier ./src --write",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "deployy": "npm run deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gh-pages": "^6.3.0",
     "prettier": "^2.6.2"
   }
 }
