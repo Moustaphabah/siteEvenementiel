@@ -2,12 +2,14 @@ import PropTypes from "prop-types";
 
 import "./style.scss";
 
+const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL || ''}${src}` : src);
+
 const ModalEvent = ({ event }) => (
     <div className="ModalEvent">
       <div className="ModalEvent__imageContainer">
         <img
           data-testid="card-image-testid"
-          src={event.cover}
+          src={resolveSrc(event.cover)}
           alt={event.title}
         />
       </div>

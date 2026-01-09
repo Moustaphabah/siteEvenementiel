@@ -3,7 +3,7 @@ import { getMonth } from "../../helpers/Date";
 
 import "./style.scss";
 
-const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
+const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL || ''}${src}` : src);
 
 const EventCard = ({
   imageSrc,

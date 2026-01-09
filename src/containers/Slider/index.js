@@ -10,7 +10,7 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
-  const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL}${src}` : src);
+  const resolveSrc = (src) => (src && src.startsWith('/') ? `${process.env.PUBLIC_URL || ''}${src}` : src);
 
   useEffect(() => {
     if (!byDateDesc || byDateDesc.length === 0) return undefined;
